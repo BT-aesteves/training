@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.actions.act_window" id="sessions_id">
+        <field name="name">Sessions</field>
+        <field name="res_model">sessions</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <record id="session_tree_view" model="ir.ui.view">
+        <field name="name">Sessions</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+            <tree string="Sessions">
+                  <field name="name"/>
+                  <field name="course_description"/>
+                  <field name="number_of_seats"/>
+                  <field name="taken_seats_percentage" widget="progressbar"/>
+                  <field name="duration"/>
+                  <field name="start_date"/>
+                  <field name="end_date"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="sessions_form_id">
+        <field name="name">Edit Session</field>
+        <field name="model">sessions</field>
+        <field name="arch" type="xml">
+          <form string="Edit Session">
+              <group colspan="1">
+                  <field name="name"/>
+                  <field name="number_of_seats"/>
+                  <field name="taken_seats_percentage" widget="progressbar"/>
+                  <field name="duration"/>
+                  <field name="start_date"/>
+                  <field name="end_date"/>
+              </group>
+              <notebook colspan="4">
+                <page string="Courses">
+                    <field name="related_course" nolabel="1"></field>
+                </page>
+                  <page string="Attendees">
+                    <field name="attendees" nolabel="1"></field>
+                </page>
+              </notebook>
+          </form>
+        </field>
+    </record>
+    <menuitem id="sessions_submenu_id"  name="Sessions" parent="menu_id" action="sessions_id" sequence="2" ></menuitem>
+</odoo>
