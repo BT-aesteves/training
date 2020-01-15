@@ -1,5 +1,5 @@
 {
-    'name': "Courses",
+    'name': "Open Academy",
     'version': '1.0',
     'depends': ['base'],
     'author': "Alex Esteves",
@@ -10,6 +10,7 @@
     'instalable': True,
     'data': [
             'views/courses_view.xml',
-            'views/sessions_view.xml'
+            'views/sessions_view.xml',
+            'views/partner_form_view.xml'
         ]
 }

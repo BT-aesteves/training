@@ -1,0 +1,19 @@
+<odoo>
+    <record model="ir.ui.view" id="oc_partner_form_view">
+        <field name="name">Partner View</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group" position="inside">
+                <group colspan="1">
+                    <field name="instructor"/>
+                </group>
+            </xpath>
+            <xpath expr="/form/sheet/notebook" position="inside">
+                <page string="Sessions">
+                    <field name="sessions"/>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

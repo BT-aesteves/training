@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record model="ir.actions.act_window" id="sessions_id">
         <field name="name">Sessions</field>
@@ -12,6 +11,7 @@
             <tree string="Sessions">
                   <field name="name"/>
                   <field name="course_description"/>
+                  <field name="instructor"/>
                   <field name="number_of_seats"/>
                   <field name="taken_seats_percentage" widget="progressbar"/>
                   <field name="duration"/>
@@ -27,6 +27,7 @@
           <form string="Edit Session">
               <group colspan="1">
                   <field name="name"/>
+                  <field name="instructor"/>
                   <field name="number_of_seats"/>
                   <field name="taken_seats_percentage" widget="progressbar"/>
                   <field name="duration"/>
@@ -34,9 +35,6 @@
                   <field name="end_date"/>
               </group>
               <notebook colspan="4">
-                <page string="Courses">
-                    <field name="related_course" nolabel="1"></field>
-                </page>
                   <page string="Attendees">
                     <field name="attendees" nolabel="1"></field>
                 </page>
