@@ -1,12 +1,14 @@
 <odoo>
-    <record model="ir.actions.act_window" id="courses_id">
-        <field name="name">Courses</field>
-        <field name="res_model">courses</field>
+    <record model="ir.actions.act_window" id="course_view">
+        <field name="name">course.view</field>
+        <field name="res_model">course</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_my_courses': 1}</field>
     </record>
-    <record model="ir.ui.view" id="test_module_form">
-        <field name="name">Edit Course</field>
-        <field name="model">courses</field>
+
+    <record model="ir.ui.view" id="course_form_view">
+        <field name="name">course.form.view</field>
+        <field name="model">course</field>
         <field name="arch" type="xml">
           <form string="Edit Course">
               <group colspan="1">
@@ -22,9 +24,10 @@
           </form>
         </field>
     </record>
+
     <record id="course_tree_view" model="ir.ui.view">
-        <field name="name">Courses</field>
-        <field name="model">courses</field>
+        <field name="name">course.tree.view</field>
+        <field name="model">course</field>
         <field name="arch" type="xml">
             <tree string="Courses">
                   <field name="name"/>
@@ -33,6 +36,22 @@
             </tree>
         </field>
     </record>
-    <menuitem id="menu_id" name="Open Academy" sequence="30"></menuitem>
-    <menuitem id="submenu_id"  name="Courses" parent="menu_id" action="courses_id" sequence="1" ></menuitem>
+
+    <record id="course_search_view" model="ir.ui.view">
+        <field name="name">course.search.view</field>
+        <field name="model">course</field>
+        <field name="arch" type="xml">
+            <search>
+                  <field name="name"/>
+                  <field name="description"/>
+                  <filter name="my_courses" string="My Courses" domain="[('responsible', '=', uid)]"/>
+                  <group string="Group By">
+                      <filter name="group_by_responsible" string="Responsible" context="{'group_by': 'responsible'}"/>
+                  </group>
+            </search>
+        </field>
+    </record>
+
+    <menuitem id="openacademy_menu" name="Open Academy" sequence="30"></menuitem>
+    <menuitem id="openacademy_menu_view"  name="Courses" parent="openacademy_menu" action="course_view" sequence="1" ></menuitem>
 </odoo>

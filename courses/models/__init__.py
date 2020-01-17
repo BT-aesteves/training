@@ -1,3 +1,3 @@
-from . import courses
-from . import sessions
+from . import course
+from . import session
 from . import res_partner

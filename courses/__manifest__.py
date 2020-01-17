@@ -9,8 +9,10 @@
                    """,
     'instalable': True,
     'data': [
-            'views/courses_view.xml',
-            'views/sessions_view.xml',
-            'views/partner_form_view.xml'
+        'data/teacher_tags.xml',
+        'views/courses_view.xml',
+        'views/sessions_view.xml',
+        'views/partner_form_view.xml',
+        'wizard/wizard_view.xml'
         ]
 }

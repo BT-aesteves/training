@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="res.partner.category" id="teacher_tag" >
+            <field name="name">Teacher</field>
+        </record>
+        <record model="res.partner.category" id="level_1">
+            <field name="name">Level 1</field>
+            <field name="parent_id" ref="teacher_tag"/>
+        </record>
+        <record model="res.partner.category" id="level_2">
+            <field name="name">Level 2</field>
+            <field name="parent_id" ref="teacher_tag"/>
+        </record>
+    </data>
+</odoo>
