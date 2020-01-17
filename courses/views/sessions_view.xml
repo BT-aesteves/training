@@ -1,6 +1,6 @@
 <odoo>
     <record model="ir.actions.act_window" id="session_view">
-        <field name="name">session.view</field>
+        <field name="name">Sessions</field>
         <field name="res_model">session</field>
         <field name="view_mode">tree,form,kanban,calendar</field>
     </record>

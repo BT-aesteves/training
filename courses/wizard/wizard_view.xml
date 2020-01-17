@@ -1,6 +1,6 @@
 <odoo>
     <act_window id="wizard_view_action"
-            name="register.attendees.action"
+            name="Register Attendess"
             binding_model="session"
             res_model="wizard"
             view_mode="form" target="new"/>

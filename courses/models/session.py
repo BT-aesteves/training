@@ -68,7 +68,7 @@ class Session(models.Model):
         return {
             'view_type': 'form',
             'view_mode': 'form',
-            'res_model': 'sessions',
+            'res_model': 'session',
             'views': [(False, 'form')],
             'type': 'ir.actions.act_window',
             'res_id': self.id,
