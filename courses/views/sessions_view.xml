@@ -18,6 +18,7 @@
                   <field name="duration"/>
                   <field name="start_date"/>
                   <field name="end_date"/>
+                  <field name="status" />
                   <button name="show_form" string="Edit" type="object"/>
             </tree>
         </field>
@@ -28,6 +29,13 @@
         <field name="model">session</field>
         <field name="arch" type="xml">
           <form string="Edit Session">
+              <header>
+                  <button name="confirm_session" type="object" class="btn-primary"
+                          attrs="{'invisible': [('status', '!=', 'draft')]}" string="Confirm"/>
+                  <button name="end_session" type="object" class="btn-primary"
+                          attrs="{'invisible': [('status', '!=', 'confirmed')]}" string="Done"/>
+                  <field name="status" widget="statusbar"/>
+              </header>
               <group colspan="1">
                   <field name="name"/>
                   <field name="instructor"/>
@@ -56,13 +64,24 @@
         </field>
     </record>
 
+    <record id="session_search_view" model="ir.ui.view">
+        <field name="name">session.search.view</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <search>
+                  <field name="name"/>
+                  <filter name="full_session" string="Full Sessions" domain="[('number_of_seats','=',0)]"/>
+            </search>
+        </field>
+    </record>
+
     <record model="ir.ui.view" id="session_kanban_view">
         <field name="name">session.kanban.view</field>
         <field name="model">session</field>
         <field name="arch" type="xml">
-            <kanban default_group_by='session_id'>
+            <kanban default_group_by="session_id">
                 <field name="color"/>
-                <field name='name'/>
+                <field name="name"/>
                 <templates>
                     <t t-name="kanban-box">
                     <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}

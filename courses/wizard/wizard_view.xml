@@ -11,13 +11,11 @@
         <field name="arch" type="xml">
             <form string="Register Attendees">
                 <group>
-                    <field name="session_id"/>
+                    <field name="session_id"></field>
                 </group>
-                <notebook colspan="4">
-                  <page string="Attendees">
-                      <field name="attendees" nolabel="1"></field>
-                  </page>
-                </notebook>
+                <group>
+                    <field name="attendees"></field>
+                </group>
                 <footer>
                     <button name="register_attendees" type="object" string="Register" class="btn-primary"/>
                     <button string="Cancel" special="cancel" class="btn-secondary"/>
