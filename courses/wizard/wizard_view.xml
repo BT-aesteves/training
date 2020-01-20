@@ -11,7 +11,7 @@
         <field name="arch" type="xml">
             <form string="Register Attendees">
                 <group>
-                    <field name="session_id"></field>
+                    <field name="session_ids"></field>
                 </group>
                 <group>
                     <field name="attendees"></field>

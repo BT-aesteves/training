@@ -1,5 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-oa_course_user_access,oa.course.access,model_course,openacademy.openacademy_user_group,1,1,0,0
-oa_session_user_access,oa.session.access,model_session,openacademy.openacademy_user_group,1,1,0,0
+oa_course_user_access,oa.course.access,model_course,,1,1,0,0
+oa_session_user_access,oa.session.access,model_session,,1,1,0,0
 oa_course_manager_access,oa.course_manager.access,model_course,openacademy.openacademy_manager_group,1,1,1,1
 oa_session_manager_access,oa.session_manager.access,model_session,openacademy.openacademy_manager_group,1,1,1,1

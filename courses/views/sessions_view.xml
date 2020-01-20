@@ -2,7 +2,7 @@
     <record model="ir.actions.act_window" id="session_view">
         <field name="name">Sessions</field>
         <field name="res_model">session</field>
-        <field name="view_mode">tree,form,kanban,calendar</field>
+        <field name="view_mode">tree,form,kanban,calendar,graph,pivot,gantt</field>
     </record>
 
     <record id="session_tree_view" model="ir.ui.view">
@@ -18,7 +18,7 @@
                   <field name="duration"/>
                   <field name="start_date"/>
                   <field name="end_date"/>
-                  <field name="status" />
+                  <field name="state" />
                   <button name="show_form" string="Edit" type="object"/>
             </tree>
         </field>
@@ -31,10 +31,10 @@
           <form string="Edit Session">
               <header>
                   <button name="confirm_session" type="object" class="btn-primary"
-                          attrs="{'invisible': [('status', '!=', 'draft')]}" string="Confirm"/>
+                          attrs="{'invisible': ['|',('state', '=', 'confirmed'),('state','=','done')]}" string="Confirm"/>
                   <button name="end_session" type="object" class="btn-primary"
-                          attrs="{'invisible': [('status', '!=', 'confirmed')]}" string="Done"/>
-                  <field name="status" widget="statusbar"/>
+                          attrs="{'invisible': ['|',('state', '=', 'draft'),('state', '=', 'done')]}" string="Done"/>
+                  <field name="state" widget="statusbar"/>
               </header>
               <group colspan="1">
                   <field name="name"/>
@@ -44,6 +44,7 @@
                   <field name="duration"/>
                   <field name="start_date"/>
                   <field name="end_date"/>
+                  <field name="session_ended" invisible="1"/>
               </group>
               <notebook colspan="4">
                   <page string="Attendees">
@@ -70,8 +71,41 @@
         <field name="arch" type="xml">
             <search>
                   <field name="name"/>
-                  <filter name="full_session" string="Full Sessions" domain="[('number_of_seats','=',0)]"/>
+                  <filter name="full_session_filter" string="Full Sessions" domain="[('full_session','=',True)]"/>
             </search>
+        </field>
+    </record>
+
+    <record id="session_gantt_view" model="ir.ui.view">
+        <field name="name">session.gantt.view</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <gantt string="Sessions"
+                 date_start="start_date"
+                 date_stop="end_date"
+                 default_group_by="instructor"/>
+        </field>
+    </record>
+
+    <record id="session_graph_view" model="ir.ui.view">
+        <field name="name">session.graph.view</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <graph string="Sessions" type="bar">
+                <field name="name"/>
+                <field name="attendees_number" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="session_pivot_view" model="ir.ui.view">
+        <field name="name">session.pivot.view</field>
+        <field name="model">session</field>
+        <field name="arch" type="xml">
+            <pivot string='Sessions'>
+                <field name="name" type='row'/>
+                <field name="instructor" type='col'/>
+            </pivot>
         </field>
     </record>
 
