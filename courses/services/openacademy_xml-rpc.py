@@ -16,6 +16,14 @@ class Conection():
         args = {'name': 'Testing'}
         print(sock.execute(DB, uid, PASS, 'session', 'create', args))
 
+    def get_sessions(HOST, PORT, USER, PASS, DB):
+        root = 'http://%s:%d/xmlrpc/' % (HOST, PORT)
+        uid = xmlrpc.client.ServerProxy(root + 'common').login(DB, USER, PASS)
+        sock = xmlrpc.client.ServerProxy(root + 'object')
+        args = []
+        print(sock.execute(DB, uid, PASS, 'session', 'search', args))
+
+    get_sessions(HOST, PORT, USER, PASS, DB)
     create_session(HOST, PORT, USER, PASS, DB)
 
 
