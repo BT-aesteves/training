@@ -13,6 +13,7 @@
         "views/sessions_view.xml",
         "views/partner_form_view.xml",
         "views/dashboard.xml",
+        "views/menu_actions.xml",
         "reports/sessions_report.xml",
         "wizard/wizard_view.xml",
         "security/security.xml",

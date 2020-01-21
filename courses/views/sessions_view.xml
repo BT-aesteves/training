@@ -1,5 +1,5 @@
 <odoo>
-    <record model="ir.actions.act_window" id="session_view">
+    <record model="ir.actions.act_window" id="session_action">
         <field name="name">Sessions</field>
         <field name="res_model">session</field>
         <field name="view_mode">tree,form,kanban,calendar,graph,pivot,gantt</field>
@@ -44,7 +44,6 @@
                   <field name="duration"/>
                   <field name="start_date"/>
                   <field name="end_date"/>
-                  <field name="session_ended" invisible="1"/>
               </group>
               <notebook colspan="4">
                   <page string="Attendees">
@@ -145,6 +144,4 @@
             </kanban>
         </field>
     </record>
-
-    <menuitem id="session_menu"  name="Sessions" parent="openacademy_menu" action="session_view" sequence="2" ></menuitem>
 </odoo>

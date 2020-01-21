@@ -1,0 +1,5 @@
+<odoo>
+    <menuitem name="Open Academy" action="open_board_session" sequence="10" id="openacademy_menu"/>
+    <menuitem id="openacademy_menu_view"  name="Courses" parent="openacademy_menu" action="course_action" sequence="1" ></menuitem>
+    <menuitem id="session_menu"  name="Sessions" parent="openacademy_menu" action="session_action" sequence="2" ></menuitem>
+</odoo>

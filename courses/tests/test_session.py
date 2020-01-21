@@ -10,8 +10,7 @@ class TestSession(common.TransactionCase):
             'name': 'Test session',
             'duration': 0,
             'start_date': date.today(),
-            'end_date': date.today() + relativedelta(days=5),
-            'session_ended': False
+            'end_date': date.today() + relativedelta(days=5)
         })
 
         context = {"active_model": 'session', "active_ids": [session.id], "active_id": session.id}

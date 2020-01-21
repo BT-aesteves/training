@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+    <data noupdate="1">
         <record model="res.partner.category" id="teacher_tag" >
             <field name="name">Teacher</field>
         </record>

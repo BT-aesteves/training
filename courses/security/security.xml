@@ -15,7 +15,7 @@
             <field name="perm_read" eval="False"/>
             <field name="perm_write" eval="True"/>
             <field name="perm_create" eval="False"/>
-            <field name="perm_unlink" eval="False"/>
+            <field name="perm_unlink" eval="True"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]" />
         </record>
         <record id="openacademy_manager_rule" model="ir.rule">

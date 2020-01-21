@@ -41,6 +41,4 @@
          <field name="usage">menu</field>
          <field name="view_id" ref="board_session_form"/>
     </record>
-
-    <menuitem name="Open Academy" action="open_board_session" sequence="10" id="openacademy_menu"/>
 </odoo>
